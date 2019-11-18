@@ -1,4 +1,4 @@
-import React, {Component}from 'react';
+import React from 'react';
 import Header from '../Header';
 import ItemList from '../ItemList';
 import RandomPlanet from '../RandomPlanet';
