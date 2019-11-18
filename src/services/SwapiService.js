@@ -16,17 +16,17 @@ export default class SwapiService {
         return res.results;
     }
 
-    getPerson(id){
+    async getPerson(id){
         return this.getResource(`/people/${id}`);
     }
 
     async getAllPlanets(){
-        const res = await this.getResource(`/planet/`);
+        const res = await this.getResource(`/planets/`);
         return res.results;
     }
 
-    getPlanet(id){
-        return this.getResource(`/planet/${id}`);
+    async getPlanet(id){
+        return this.getResource(`/planets/${id}`);
     }
 
     async getAllStarship(){
@@ -34,7 +34,7 @@ export default class SwapiService {
         return res.results;
     }
 
-    getStarship(id){
+    async getStarship(id){
         return this.getResource(`/starships/${id}`);
     }
 }
