@@ -16,10 +16,9 @@ export default class ItemList extends Component{
             .getAllPeople()
             .then((peopleList) => {
                 this.setState({
-                    peopleList: peopleList
+                    peopleList
                 })
             })
-            .catch(console.log('err'))
     }
 
     renderItems(arr) {

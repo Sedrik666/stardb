@@ -8,7 +8,7 @@ import './App.css'
 
 export default class App extends Component {
     state = {
-        selectedPerson: null,
+        selectedPerson: 5,
     };
 
     onPersonSelected = (id) => {
@@ -30,5 +30,4 @@ export default class App extends Component {
             </div>
         );
     }
-
 };
