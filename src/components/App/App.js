@@ -3,11 +3,9 @@ import Header from '../Header';
 import RandomPlanet from '../RandomPlanet';
 
 import './App.css'
-import PeoplePage from "../PeoplePage";
-import ErrorButton from "../ErrorButton";
 import ErrorBoundary from "../ErrorBoundary";
 import SwapiService from "../../services/SwapiService";
-import ItemDetails from "../ItemDetails";
+import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import Row from "../Row";
 
 export default class App extends Component {
@@ -38,7 +36,10 @@ export default class App extends Component {
                 itemId={3}
                 getData={getPerson}
                 getImageUrl={getPersonImage}
-            />
+            >
+                <Record field = "gender" label = "Gender" />
+                <Record field = "eyeColor" label = "Eye Color"/>
+            </ItemDetails>
         );
 
         const starshipnDetails = (
@@ -46,7 +47,10 @@ export default class App extends Component {
                 itemId={5}
                 getData={getStarship}
                 getImageUrl={getStarshipImage}
-            />
+            >
+                <Record field = "gender" label = "Gender" />
+                <Record field = "eyeColor" label = "Eye Color"/>
+            </ItemDetails>
         );
 
 
