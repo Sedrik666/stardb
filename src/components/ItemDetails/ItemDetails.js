@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Children } from 'react';
 
 import './ItemDetails.css';
 import SwapiService from "../../services/SwapiService";
@@ -76,8 +76,8 @@ export default class ItemDetails extends Component {
                     <h4>{name}</h4>
                     <ul className="list-group list-group-flush">
                         {
-                            React.Children.map(this.props.children, (child, idx) => {
-                                return <li>idx</li>
+                            Children.map(this.props.children, (child, idx) => {
+                                return <li>{idx}</li>
                             })
                         }
                     </ul>
