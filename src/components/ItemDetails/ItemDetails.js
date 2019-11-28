@@ -1,21 +1,8 @@
-import React, { Component, Children } from 'react';
+import React, { Component, Children, cloneElement } from 'react';
 
 import './ItemDetails.css';
 import SwapiService from "../../services/SwapiService";
 import Spinner from "../Spinner";
-
-const Record = ({item, field, label}) => {
-    return(
-        <li className="list-group-item">
-            <span className="term">{label}</span>
-            <span>{ field }</span>
-        </li>
-    );
-};
-
-export {
-    Record
-}
 
 export default class ItemDetails extends Component {
     swapiService = new SwapiService();
@@ -59,7 +46,7 @@ export default class ItemDetails extends Component {
             return <span>Select a item from a list</span>
         }
 
-        const { name, gender, birthYear, eyeColor } = item;
+        const { name } = item;
 
         if (this.state.loading) {
             return <Spinner />;
@@ -77,7 +64,7 @@ export default class ItemDetails extends Component {
                     <ul className="list-group list-group-flush">
                         {
                             Children.map(this.props.children, (child, idx) => {
-                                return <li>{idx}</li>
+                                return cloneElement(child, {item});
                             })
                         }
                     </ul>
@@ -85,4 +72,17 @@ export default class ItemDetails extends Component {
             </div>
         )
     }
+}
+
+const Record = ({item, field, label}) => {
+    return(
+        <li className="list-group-item">
+            <span className="term">{label}</span>
+            <span>{ item[field] }</span>
+        </li>
+    );
+};
+
+export {
+    Record
 }
