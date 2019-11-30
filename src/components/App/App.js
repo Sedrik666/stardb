@@ -8,6 +8,10 @@ import SwapiService from "../../services/SwapiService";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import ItemList from "../ItemList/ItemList";
 import Row from "../Row";
+import {
+    PersonList, PlanetList, StarshipList,
+    PersonDetails, PlanetDetails, StarshipDetails
+} from '../SWComponents';
 
 export default class App extends Component {
     swapiService = new SwapiService();
@@ -62,21 +66,28 @@ export default class App extends Component {
             <ErrorBoundary>
                 <div className="stardb-app">
                     <Header/>
+                    <PersonList>
+                        { ({name}) => <span>{name}</span> }
+                    </PersonList>
+                    <PlanetList>
+                        { ({name}) => <span>{name}</span> }
+                    </PlanetList>
+                    <StarshipList>
+                        { ({name}) => <span>{name}</span> }
+                    </StarshipList>
+                    {/*<PersonDetails/>*/}
+
                     {/*<Row left={personDetails}
                          right={starshipnDetails}
                     />*/}
-                    <ItemList
-                        getData={getAllPeople}
-                        onItemSelected={() => {}}
-                    >
-                        { ({name}) => <span>{name}</span> }
-                    </ItemList>
-                    <ItemList
+
+
+                   {/* <ItemList
                         getData={getAllStarships}
                         onItemSelected={() => {}}
                     >
                         { ({name}) => <span>{name}</span> }
-                    </ItemList>
+                    </ItemList>*/}
                 </div>
             </ErrorBoundary>
         );

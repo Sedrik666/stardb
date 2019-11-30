@@ -1,12 +1,9 @@
 import React, { Component, Children, cloneElement } from 'react';
 
 import './ItemDetails.css';
-import SwapiService from "../../services/SwapiService";
 import Spinner from "../Spinner";
 
 export default class ItemDetails extends Component {
-    swapiService = new SwapiService();
-
     state = {
         item: null,
         image: null,
