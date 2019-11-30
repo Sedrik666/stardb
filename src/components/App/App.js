@@ -6,8 +6,7 @@ import './App.css'
 import ErrorBoundary from "../ErrorBoundary";
 import SwapiService from "../../services/SwapiService";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
-import ItemList from "../ItemList/ItemList";
-import Row from "../Row";
+//import Row from "../Row";
 import {
     PersonList, PlanetList, StarshipList,
     PersonDetails, PlanetDetails, StarshipDetails
