@@ -2,9 +2,8 @@ import React, { Component, Children, cloneElement } from 'react';
 
 import './ItemDetails.css';
 import Spinner from "../Spinner";
-import {WithDetails} from "../HocHelpers";
 
-class ItemDetails extends Component {
+export default class ItemDetails extends Component {
     state = {
         item: null,
         image: null,
@@ -12,6 +11,7 @@ class ItemDetails extends Component {
     };
 
     componentDidMount() {
+        console.log(this.props);
         this.updateItem();
     }
 
@@ -39,16 +39,17 @@ class ItemDetails extends Component {
     }
 
     render() {
-        const { item, image } = this.state;
-        if(!this.state.item) {
+        const { item, image, loading } = this.state;
+
+        if (loading) {
+            return <Spinner />;
+        }
+
+        if(!item) {
             return <span>Select a item from a list</span>
         }
 
         const { name } = item;
-
-        if (this.state.loading) {
-            return <Spinner />;
-        }
 
         return (
             <div className="item-details card">
@@ -61,7 +62,7 @@ class ItemDetails extends Component {
                     <h4>{name}</h4>
                     <ul className="list-group list-group-flush">
                         {
-                            Children.map(this.props.children, (child) => {
+                            Children.map(this.props.children, (child, idx) => {
                                 return cloneElement(child, {item});
                             })
                         }
@@ -84,5 +85,3 @@ const Record = ({item, field, label}) => {
 export {
     Record
 }
-
-export default WithDetails(ItemDetails);

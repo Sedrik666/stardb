@@ -4,15 +4,13 @@ import Header from '../Header';
 
 import './App.css'
 import ErrorBoundary from "../ErrorBoundary";
-//import SwapiService from "../../services/SwapiService";
+import SwapiService from "../../services/SwapiService";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import Row from "../Row";
 import {
     PersonList, //PlanetList, StarshipList,
-    //PersonDetails, PlanetDetails, StarshipDetails
+    PersonDetails, //PlanetDetails, StarshipDetails
 } from '../SWComponents';
-
-import SwapiService from "../../services/SwapiService";
 
 export default class App extends Component {
     swapiService = new SwapiService();
@@ -40,14 +38,7 @@ export default class App extends Component {
 
 
         const personDetails = (
-            <ItemDetails
-                itemId={3}
-                getData={getPerson}
-                getImageUrl={getPersonImage}
-            >
-                <Record field = "gender" label = "Gender" />
-                <Record field = "eyeColor" label = "Eye Color"/>
-            </ItemDetails>
+            <PersonDetails itemId={11}/>
         );
 
         const personList = (
