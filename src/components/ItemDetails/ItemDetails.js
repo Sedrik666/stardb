@@ -2,8 +2,9 @@ import React, { Component, Children, cloneElement } from 'react';
 
 import './ItemDetails.css';
 import Spinner from "../Spinner";
+import {WithDetails} from "../HocHelpers";
 
-export default class ItemDetails extends Component {
+class ItemDetails extends Component {
     state = {
         item: null,
         image: null,
@@ -60,7 +61,7 @@ export default class ItemDetails extends Component {
                     <h4>{name}</h4>
                     <ul className="list-group list-group-flush">
                         {
-                            Children.map(this.props.children, (child, idx) => {
+                            Children.map(this.props.children, (child) => {
                                 return cloneElement(child, {item});
                             })
                         }
@@ -83,3 +84,5 @@ const Record = ({item, field, label}) => {
 export {
     Record
 }
+
+export default WithDetails(ItemDetails);
