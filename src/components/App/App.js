@@ -41,12 +41,6 @@ export default class App extends Component {
             <PersonDetails itemId={11}/>
         );
 
-        const personList = (
-            <PersonList>
-                { ({name}) => <span>{name}</span> }
-            </PersonList>
-        );
-
        /* const starshipnDetails = (
             <ItemDetails
                 itemId={5}
@@ -64,7 +58,7 @@ export default class App extends Component {
             <ErrorBoundary>
                 <div className="stardb-app">
                     <Header/>
-                    <Row left={personList}
+                    <Row left={<PersonList/>}
                          right={personDetails}
                     />
                 </div>
