@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import Header from '../Header';
-import RandomPlanet from '../RandomPlanet';
+//import RandomPlanet from '../RandomPlanet';
 
 import './App.css'
 import ErrorBoundary from "../ErrorBoundary";
-import SwapiService from "../../services/SwapiService";
-import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
+//import SwapiService from "../../services/SwapiService";
+//import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 //import Row from "../Row";
 import {
     PersonList, PlanetList, StarshipList,
-    PersonDetails, PlanetDetails, StarshipDetails
+    //PersonDetails, PlanetDetails, StarshipDetails
 } from '../SWComponents';
 
 export default class App extends Component {
-    swapiService = new SwapiService();
+    //swapiService = new SwapiService();
 
     state={
         showRandomPlanet: true,
@@ -21,18 +21,18 @@ export default class App extends Component {
         hasError: false,
     };
 
-    toggleRandomPlanet = () => {
+    /*toggleRandomPlanet = () => {
         this.setState((state) => {
             return {
                 showRandomPlanet: !state.showRandomPlanet
             }
         });
-    };
+    };*/
 
     render(){
-        const { getAllPeople, getPerson, getPersonImage, getAllStarships,getStarship, getStarshipImage } = this.swapiService;
+        //const { /*getAllPeople,*/ getPerson, getPersonImage, /*getAllStarships,*/ getStarship, getStarshipImage } = this.swapiService;
 
-        const planet = this.state.showRandomPlanet ?
+/*        const planet = this.state.showRandomPlanet ?
             <RandomPlanet/> :
             null;
 
@@ -58,7 +58,7 @@ export default class App extends Component {
                 <Record field = "length" label = "Length"/>
                 <Record field = "costInCredits" label = "Cost"/>
             </ItemDetails>
-        );
+        );*/
 
 
         return(

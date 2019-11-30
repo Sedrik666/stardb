@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import ItemList from "../ItemList/ItemList";
 import { WithData} from "../HocHelpers";
 import SwapiService from "../../services/SwapiService";

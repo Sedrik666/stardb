@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 //import ItemDetails, {Record} from "../ItemDetails";
 //import SwapiService from "../../services/SwapiService";
 
