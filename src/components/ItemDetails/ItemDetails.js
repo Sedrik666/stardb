@@ -1,12 +1,9 @@
 import React, { Component, Children, cloneElement } from 'react';
 
 import './ItemDetails.css';
-import SwapiService from "../../services/SwapiService";
 import Spinner from "../Spinner";
 
 export default class ItemDetails extends Component {
-    swapiService = new SwapiService();
-
     state = {
         item: null,
         image: null,
@@ -41,16 +38,17 @@ export default class ItemDetails extends Component {
     }
 
     render() {
-        const { item, image } = this.state;
-        if(!this.state.item) {
+        const { item, image, loading } = this.state;
+
+        if (loading) {
+            return <Spinner />;
+        }
+
+        if(!item) {
             return <span>Select a item from a list</span>
         }
 
         const { name } = item;
-
-        if (this.state.loading) {
-            return <Spinner />;
-        }
 
         return (
             <div className="item-details card">

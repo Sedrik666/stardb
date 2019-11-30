@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import Header from '../Header';
-import RandomPlanet from '../RandomPlanet';
+//import RandomPlanet from '../RandomPlanet';
 
 import './App.css'
 import ErrorBoundary from "../ErrorBoundary";
 import SwapiService from "../../services/SwapiService";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
-import ItemList from "../ItemList/ItemList";
 import Row from "../Row";
+import {
+    PersonList, //PlanetList, StarshipList,
+    PersonDetails, //PlanetDetails, StarshipDetails
+} from '../SWComponents';
 
 export default class App extends Component {
     swapiService = new SwapiService();
@@ -18,34 +21,27 @@ export default class App extends Component {
         hasError: false,
     };
 
-    toggleRandomPlanet = () => {
+    /*toggleRandomPlanet = () => {
         this.setState((state) => {
             return {
                 showRandomPlanet: !state.showRandomPlanet
             }
         });
-    };
+    };*/
 
     render(){
-        const { getAllPeople, getPerson, getPersonImage, getAllStarships,getStarship, getStarshipImage } = this.swapiService;
+        const {  getPerson, getPersonImage/*, getAllStarships, getStarship, getStarshipImage*/ } = this.swapiService;
 
-        const planet = this.state.showRandomPlanet ?
+       /* const planet = this.state.showRandomPlanet ?
             <RandomPlanet/> :
-            null;
+            null;*/
 
 
         const personDetails = (
-            <ItemDetails
-                itemId={3}
-                getData={getPerson}
-                getImageUrl={getPersonImage}
-            >
-                <Record field = "gender" label = "Gender" />
-                <Record field = "eyeColor" label = "Eye Color"/>
-            </ItemDetails>
+            <PersonDetails itemId={11}/>
         );
 
-        const starshipnDetails = (
+       /* const starshipnDetails = (
             <ItemDetails
                 itemId={5}
                 getData={getStarship}
@@ -55,28 +51,16 @@ export default class App extends Component {
                 <Record field = "length" label = "Length"/>
                 <Record field = "costInCredits" label = "Cost"/>
             </ItemDetails>
-        );
+        );*/
 
 
         return(
             <ErrorBoundary>
                 <div className="stardb-app">
                     <Header/>
-                    {/*<Row left={personDetails}
-                         right={starshipnDetails}
-                    />*/}
-                    <ItemList
-                        getData={getAllPeople}
-                        onItemSelected={() => {}}
-                    >
-                        { ({name}) => <span>{name}</span> }
-                    </ItemList>
-                    <ItemList
-                        getData={getAllStarships}
-                        onItemSelected={() => {}}
-                    >
-                        { ({name}) => <span>{name}</span> }
-                    </ItemList>
+                    <Row left={<PersonList/>}
+                         right={personDetails}
+                    />
                 </div>
             </ErrorBoundary>
         );
