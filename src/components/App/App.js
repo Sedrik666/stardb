@@ -11,12 +11,11 @@ import {
     PersonList, //PlanetList, StarshipList,
     PersonDetails, //PlanetDetails, StarshipDetails
 } from '../SWComponents';
-import DummiSwapiService from "../../services/DummySwapiService";
 import SwapiService from "../../services/SwapiService";
 import {SwapiServiceProvider} from '../SwapiServiceContext'
 
 export default class App extends Component {
-    swapiService = new DummiSwapiService();
+    swapiService = new SwapiService();
 
     state={
         showRandomPlanet: true,
