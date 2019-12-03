@@ -8,7 +8,7 @@ import './PeoplePage.css';
 
 export default class PlanetsPage extends Component{
     state={
-        selectedItem: 3,
+        selectedItem: null,
     };
 
     onItemSelected = (id) => {

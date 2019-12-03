@@ -6,7 +6,7 @@ import {StarshipDetails, StarshipList} from "../SWComponents";
 
 export default class StarshipsPage extends Component{
     state={
-        selectedItem: 5,
+        selectedItem: null,
     };
 
     onItemSelected = (id) => {
